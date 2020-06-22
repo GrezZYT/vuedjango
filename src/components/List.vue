@@ -2,10 +2,15 @@
 
     <div>
 
-        <div class="box" v-for="e in elements" v-bind:key="e.id">
-            {{ e.title }}
+        <div v-for="e in elements" v-bind:key="e.id">
+            <b-card
+                :title="e.title"
+            >
+            <b-card-text>
+                {{ e.description }}
+            </b-card-text>
+            </b-card>
         </div>
-        <button v-on:click="findAll">Click</button>
 
     </div>
     
@@ -13,6 +18,11 @@
 
 <script>
 export default {
+
+    created(){
+        this.findAll()
+    },
+
     data(){
         return{
             elements: []  
