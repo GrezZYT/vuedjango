@@ -1,7 +1,7 @@
 <template>
 
     <div class="container">
-
+        Listado de categorias
         <div v-for="e in elements" v-bind:key="e.id">
             <router-link :to="'/detail/' + e.id">
                 <b-card
@@ -32,7 +32,7 @@ export default {
     },
     methods: {
         findAll: function(){
-            fetch('http://127.0.0.1:8000/api/element/?format=json')
+            fetch('http://127.0.0.1:8000/api/category/'+this.$route.params.id+'/elements/?format=json')
                 .then(res => res.json())
                 .then(res => this.elements = res)
         }
@@ -46,3 +46,4 @@ export default {
         margin: 5px 0 0 0;
     }
 </style>
+
